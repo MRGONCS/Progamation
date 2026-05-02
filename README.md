@@ -1,2 +1,2 @@
 # ATentarPrograma-o-
-alguns trabalhos a tentar programação
+alguns trabalhos de programação
