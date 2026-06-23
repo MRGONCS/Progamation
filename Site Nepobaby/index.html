@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Old Money Nepo Club — Dinastia Oficial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f1e8;
+      --bg-dark: #0f1a16;
+      --accent: #b89b5e;
+      --accent-soft: #d3b87a;
+      --text: #1b1b1b;
+      --text-soft: #555;
+      --card: #fffaf0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Georgia", "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 241, 232, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--accent);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.7rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-text {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 3rem;
+      padding: 3rem 0 4rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: clamp(2.4rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--bg-dark);
+      color: #fdfaf4;
+      padding: 0.7rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--bg-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.8rem;
+    }
+
+    .btn-primary:hover {
+      background: #18251f;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-card {
+      background: var(--bg-dark);
+      color: #fdfaf4;
+      border-radius: 1.4rem;
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-card-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-card-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card-sub {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-card-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .hero-card-meta span {
+      display: block;
+    }
+
+    /* GRID GENÉRICO */
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      border-left: 1px solid rgba(0, 0, 0, 0.18);
+      padding-left: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.55rem;
+      top: 0.25rem;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .timeline-year {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-text {
+      font-size: 0.95rem;
+    }
+
+    /* CARDS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.4rem;
+      margin-top: 1.4rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.1rem;
+      padding: 1.4rem 1.3rem 1.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .card-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    /* FROTA / CARROSSEL */
+
+    .fleet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .fleet-note {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.4rem;
+      background: #111;
+      color: #fdfaf4;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 2.2rem 2rem 2.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .slide-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 0.6rem;
+    }
+
+    .slide-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .slide-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 1.2rem;
+    }
+
+    .slide-meta {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .slide-image {
+      border-radius: 1.1rem;
+      background-size: cover;
+      background-position: center;
+      min-height: 210px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-image::after {
+      content: "Mockup de garagem aquecida";
+      position: absolute;
+      bottom: 0.7rem;
+      right: 0.9rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .carousel-controls {
+      position: absolute;
+      inset: auto 1.4rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .dots {
+      display: flex;
+      gap: 0.4rem;
+      pointer-events: auto;
+    }
+
+    .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: #fdfaf4;
+    }
+
+    .arrows {
+      display: flex;
+      gap: 0.4rem;
+      pointer-events: auto;
+    }
+
+    .arrow-btn {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: rgba(0, 0, 0, 0.35);
+      color: #fdfaf4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .arrow-btn:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* GALERIAS / MANSÃO / MAPA */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+
+    .gallery-item {
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #c9b89a, #8b7a5a);
+      padding: 1.2rem;
+      color: #fdfaf4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-item.small {
+      min-height: 140px;
+    }
+
+    .gallery-item.large {
+      min-height: 190px;
+    }
+
+    .gallery-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.8;
+      margin-bottom: 0.4rem;
+    }
+
+    .gallery-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .gallery-note {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    .map-mock {
+      border-radius: 1.1rem;
+      background: radial-gradient(circle at 20% 20%, #d3b87a, #0f1a16);
+      min-height: 230px;
+      position: relative;
+      overflow: hidden;
+      color: #fdfaf4;
+      padding: 1.4rem;
+    }
+
+    .map-pin {
+      position: absolute;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      box-shadow: 0 0 0 4px rgba(184, 155, 94, 0.35);
+    }
+
+    .map-pin:nth-child(1) { top: 30%; left: 18%; }
+    .map-pin:nth-child(2) { top: 55%; left: 45%; }
+    .map-pin:nth-child(3) { top: 25%; left: 70%; }
+    .map-pin:nth-child(4) { top: 70%; left: 30%; }
+
+    .map-legend {
+      position: absolute;
+      bottom: 1.1rem;
+      left: 1.4rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    /* PODCAST / ÁRVORE / VALORES */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+      margin-top: 1.4rem;
+    }
+
+    .podcast-card {
+      background: var(--bg-dark);
+      color: #fdfaf4;
+      border-radius: 1.2rem;
+      padding: 1.6rem 1.5rem;
+    }
+
+    .podcast-episode {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.9rem;
+    }
+
+    .podcast-episode-title {
+      font-family: "Didot", "Bodoni MT", serif;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .values-list {
+      list-style: none;
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    .values-list li::before {
+      content: "◆ ";
+      color: var(--accent);
+    }
+
+    .tree {
+      border-radius: 1.1rem;
+      background: #fdfaf4;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 1.4rem 1.3rem;
+      font-size: 0.9rem;
+    }
+
+    .tree-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .tree-node {
+      padding: 0.4rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: #fff;
+    }
+
+    .tree-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    /* CONTACTO */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      background: #fdfaf4;
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    .contact-note {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 0.6rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 2rem 1.5rem 2.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding-top: 1.4rem;
+    }
+
+    .footer-line {
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-404 {
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 960px) {
+      .hero,
+      .section-grid,
+      .contact-grid,
+      .two-col,
+      .slide {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .slide {
+        padding: 1.8rem 1.4rem 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        OLD MONEY <span>NEPO</span> CLUB
+      </div>
+      <div class="nav-links">
+        <a href="#sobre">Dinastia</a>
+        <a href="#mansao">Mansão</a>
+        <a href="#frota">Frota</a>
+        <a href="#lifestyle">Lifestyle</a>
+        <a href="#loja">Loja</a>
+        <a href="#imprensa">Imprensa</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#contacto" class="btn-outline">Convite</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Born rich. Staying unserious.</div>
+        <h1 class="hero-title">
+          Old money energy,<br />
+          <span>nepo baby attitude.</span>
+        </h1>
+        <p class="hero-sub">
+          Não começámos do zero. Nem tencionamos. Este é o playground digital de quem herdou mais do que bom senso.
+        </p>
+        <div class="hero-actions">
+          <a href="#frota" class="btn-primary">Ver a frota</a>
+          <a href="#mansao" class="hero-note">Ou entrar pela mansão →</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div>
+          <div class="hero-card-tag">Trust fund briefing</div>
+          <h2 class="hero-card-title">Nasci com herança, não com juízo.</h2>
+          <p class="hero-card-sub">
+            Um site para quem gosta de verde escuro, carros caros e piadas internas sobre offshores.
+          </p>
+        </div>
+        <div class="hero-card-meta">
+          <div>
+            <span>Localização</span>
+            <span>Entre o clube de golfe e o jet privado.</span>
+          </div>
+          <div>
+            <span>Dress code</span>
+            <span>Cashmere, sarcasmo e óculos escuros.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SOBRE / DINASTIA -->
+    <section id="sobre">
+      <div class="section-label">Sobre a dinastia</div>
+      <div class="section-grid">
+        <div>
+          <h2 class="section-title">A família que nunca ouviu falar em “começar do zero”.</h2>
+          <p class="section-text">
+            Tudo começou com um bisavô que comprou metade de tudo o que não devia estar à venda.  
+            Depois veio o avô, que descobriu os offshores.  
+            Agora chegámos nós: a geração que herdou o legado, o drama e a garagem.
+          </p>
+          <p class="section-text">
+            Este site é um soft launch permanente: um bocadinho de arquivo de família, um bocadinho de flex,  
+            e muita ironia sobre o privilégio que ninguém aqui está a tentar esconder.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1923</div>
+            <div class="timeline-text">O bisavô compra “um pequeno terreno” que afinal era meia Europa.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1970</div>
+            <div class="timeline-text">O avô descobre os offshores e a arte de nunca estar oficialmente em lado nenhum.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2000</div>
+            <div class="timeline-text">Nasce o nepo baby. O resto é privilégio, terapia e viagens em business.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Hoje</div>
+            <div class="timeline-text">Transformamos trauma de colégio interno em estética e copy para web.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANSÃO -->
+    <section id="mansao">
+      <div class="section-label">A mansão</div>
+      <div class="section-grid">
+        <div>
+          <h2 class="section-title">Tour pela casa onde os quadros valem mais do que muitos T2.</h2>
+          <p class="section-text">
+            Hall de entrada com eco, biblioteca que cheira a couro e pó, sala de troféus que ninguém limpa  
+            desde que o avô ganhou um torneio de ténis em 1984. A mansão é personagem principal, nós somos elenco de apoio.
+          </p>
+          <p class="section-text">
+            Não é só uma casa — é um cenário permanente para dramas familiares, fotos de Natal coreografadas  
+            e discussões sobre quem fica com o quê no testamento.
+          </p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item large">
+            <div class="gallery-label">Hall de entrada</div>
+            <div class="gallery-title">Escadaria dramática</div>
+            <div class="gallery-note">Ideal para entradas tardias e saídas teatrais.</div>
+          </div>
+          <div class="gallery-item small">
+            <div class="gallery-label">Biblioteca</div>
+            <div class="gallery-title">Livros lidos? Poucos.</div>
+            <div class="gallery-note">Mas ficam lindos nas fotos.</div>
+          </div>
+          <div class="gallery-item small">
+            <div class="gallery-label">Sala de troféus</div>
+            <div class="gallery-title">Glória antiga</div>
+            <div class="gallery-note">Ténis, vela e um concurso de cães em 1992.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FROTA / CARROSSEL -->
+    <section id="frota">
+      <div class="section-label">A frota da família</div>
+      <div class="fleet-header">
+        <h2 class="section-title">O legado sobre rodas.</h2>
+        <p class="fleet-note">
+          Mercedes para honrar o bisavô, Porsche para justificar a crise de identidade aos 18.
+        </p>
+      </div>
+
+      <div class="carousel" aria-label="Carrossel de carros da família">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Slide 1 -->
+          <article class="slide">
+            <div>
+              <div class="slide-tag">Mercedes clássico</div>
+              <h3 class="slide-title">Mercedes S‑Class 1970</h3>
+              <p class="slide-text">
+                Comprado pelo bisavô, herdado por mim, mantido pelo motorista.  
+                Cheira a couro, charuto e decisões questionáveis em jantares de negócios.
+              </p>
+              <div class="slide-meta">
+                Matrícula antiga, histórias que não passam no LinkedIn.
+              </div>
+            </div>
+            <div
+              class="slide-image"
+              style="background-image: linear-gradient(135deg, #3b4a46, #111);"
+            ></div>
+          </article>
+
+          <!-- Slide 2 -->
+          <article class="slide">
+            <div>
+              <div class="slide-tag">SUV de ginásio</div>
+              <h3 class="slide-title">Mercedes G‑Wagon</h3>
+              <p class="slide-text">
+                Para ir ao ginásio a 3 minutos de casa.  
+                Zero necessidade, máximo statement. O banco da frente é basicamente um confessionário de fofoca.
+              </p>
+              <div class="slide-meta">
+                Consome mais do que a nossa casa de férias em eletricidade.
+              </div>
+            </div>
+            <div
+              class="slide-image"
+              style="background-image: linear-gradient(135deg, #2b3135, #050608);"
+            ></div>
+          </article>
+
+          <!-- Slide 3 -->
+          <article class="slide">
+            <div>
+              <div class="slide-tag">Nepo baby starter pack</div>
+              <h3 class="slide-title">Porsche 911 Turbo</h3>
+              <p class="slide-text">
+                Presente de aniversário. Nem sei estacionar.  
+                Mas fica bem nas fotos e isso, honestamente, é meio caminho andado.
+              </p>
+              <div class="slide-meta">
+                0–100 mais rápido do que eu a fugir de responsabilidades.
+              </div>
+            </div>
+            <div
+              class="slide-image"
+              style="background-image: linear-gradient(135deg, #38303f, #050308);"
+            ></div>
+          </article>
+
+          <!-- Slide 4 -->
+          <article class="slide">
+            <div>
+              <div class="slide-tag">Viagens em família</div>
+              <h3 class="slide-title">Porsche Panamera</h3>
+              <p class="slide-text">
+                Para quando a família decide viajar junta (raramente).  
+                Espaço para malas, dramas e um silêncio constrangedor em alta velocidade.
+              </p>
+              <div class="slide-meta">
+                Ideal para discutir heranças com ar condicionado.
+              </div>
+            </div>
+            <div
+              class="slide-image"
+              style="background-image: linear-gradient(135deg, #2c2835, #05040a);"
+            ></div>
+          </article>
+        </div>
+
+        <div class="carousel-controls">
+          <div class="dots">
+            <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+            <button class="dot" data-slide="3" aria-label="Slide 4"></button>
+          </div>
+          <div class="arrows">
+            <button class="arrow-btn" id="prev" aria-label="Anterior">‹</button>
+            <button class="arrow-btn" id="next" aria-label="Seguinte">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIFESTYLE -->
+    <section id="lifestyle">
+      <div class="section-label">Lifestyle</div>
+      <h2 class="section-title">Jet set, hobbies caros e zero horários fixos.</h2>
+      <p class="section-text">
+        Entre um voo e outro, a agenda é simples: brunch tardio, ténis, uma volta de barco,  
+        jantar onde o dress code é “parece que não te esforçaste, mas esforçaste imenso”.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Jet set</div>
+          <h3 class="card-title">Summer in Capri</h3>
+          <p class="card-text">
+            Barcos alugados, limonada demasiado cara e fotos a fingir que não sabias que estavam a tirar.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Inverno</div>
+          <h3 class="card-title">Courchevel season</h3>
+          <p class="card-text">
+            Ski moderado, après-ski intenso. O verdadeiro desporto é escolher outfit para o chalet.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Hobbies</div>
+          <h3 class="card-title">Ténis, vela & drama</h3>
+          <p class="card-text">
+            Desporto é importante, mas mais importante é ter um clube que imprime o teu apelido no casaco.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOJA -->
+    <section id="loja">
+      <div class="section-label">Loja oficial</div>
+      <h2 class="section-title">Merch para quem quer parecer herdeiro, com ou sem testamento.</h2>
+      <p class="section-text">
+        Peças pensadas para quem vive entre o sarcasmo e o soft launch.  
+        Não garantem herança, mas garantem comentários.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-kicker">Coleção Trust Fund</div>
+          <h3 class="card-title">Hoodie “Born Rich. Emotionally Confused.”</h3>
+          <p class="card-text">
+            Algodão pesado, energia leve. Ideal para voos noturnos e brunchs onde finges que trabalhas.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Acessórios</div>
+          <h3 class="card-title">Porta‑passaporte “Boarding School Alumni”</h3>
+          <p class="card-text">
+            Para mostrar trauma de colégio interno com orgulho e couro italiano.
+          </p>
+        </article>
+        <article class="card">
+          <div class="card-kicker">Casa</div>
+          <h3 class="card-title">Vela “Cheiro a Casa de Férias”</h3>
+          <p class="card-text">
+            Notas de madeira, sal e decisões impulsivas de comprar mais uma propriedade.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- IMPRENSA & ESCÂNDALOS -->
+    <section id="imprensa">
+      <div class="section-label">Imprensa & escândalos</div>
+      <div class="section-grid">
+        <div>
+          <h2 class="section-title">Clipping de uma vida que nunca foi low profile.</h2>
+          <p class="section-text">
+            Revistas, colunas sociais e rumores de grupo de WhatsApp — tudo filtrado, editado  
+            e apresentado com o distanciamento emocional de quem já viu pior.
+          </p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">Revista Luxo, 2018</div>
+            <div class="timeline-text">“O herdeiro mais comentado de Lisboa (e o seu casaco de cashmere).”</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Coluna social, 2021</div>
+            <div class="timeline-text">Avistado a sair de um jato privado com um cão mais caro do que um carro.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Entrevista exclusiva</div>
+            <div class="timeline-text">“Não sei quanto custa o pão, mas sei o preço de todos os upgrades de avião.”</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA OLD MONEY -->
+    <section id="galeria">
+      <div class="section-label">Galeria old money</div>
+      <h2 class="section-title">Moodboards de uma vida com passaporte carimbado.</h2>
+      <p class="section-text">
+        Outfits, viagens, objetos e pequenos detalhes que gritam “herdei isto” sem precisar de legenda.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <div class="gallery-label">Boarding school core</div>
+          <div class="gallery-title">Blazer, gravata torta, olhar distante.</div>
+          <div class="gallery-note">Trauma, mas com boa alfaiataria.</div>
+        </div>
+        <div class="gallery-item small">
+          <div class="gallery-label">Summer</div>
+          <div class="gallery-title">Monaco nights</div>
+          <div class="gallery-note">Luzes, iates e decisões impulsivas.</div>
+        </div>
+        <div class="gallery-item small">
+          <div class="gallery-label">Detalhes</div>
+          <div class="gallery-title">Relógio herdado</div>
+          <div class="gallery-note">Marca o tempo, não a ansiedade.</div>
+        </div>
+        <div class="gallery-item small">
+          <div class="gallery-label">Objetos</div>
+          <div class="gallery-title">Chaves de casa de férias</div>
+          <div class="gallery-note">Demasiadas para um só porta‑chaves.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PODCAST & VALORES -->
+    <section id="podcast">
+      <div class="section-label">Voz do herdeiro</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-title">Podcast “Soft Launch da Minha Vida”.</h2>
+          <p class="section-text">
+            Episódios curtos, zero filtros e muitas histórias que deviam ter ficado no grupo privado.  
+            Não é autoajuda, é autoexposição controlada.
+          </p>
+          <div class="podcast-card">
+            <div class="card-kicker">Episódios</div>
+            <div class="podcast-episode">
+              <div class="podcast-episode-title">Ep. 01 — Como é crescer numa casa com mais empregados do que primos.</div>
+              <div>“Spoiler: ninguém te ensina a usar a máquina de lavar.”</div>
+            </div>
+            <div class="podcast-episode">
+              <div class="podcast-episode-title">Ep. 02 — Boarding school, terapia e sotaques confusos.</div>
+              <div>“Fui educado em três países e não sei onde é ‘casa’.”</div>
+            </div>
+            <div class="podcast-episode">
+              <div class="podcast-episode-title">Ep. 03 — O dia em que percebi que não sei o preço de nada.</div>
+              <div>“Mas sei todos os códigos de aeroporto de cor.”</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="section-title" style="font-size:1.3rem;">Valores da família (versão honesta).</h3>
+          <ul class="values-list">
+            <li>Chegar atrasado, mas bem vestido.</li>
+            <li>Nunca correr — só caminhar depressa.</li>
+            <li>Discutir herança em privado, brindar em público.</li>
+            <li>Tratar bem quem sabe o teu nome e o teu pedido de café.</li>
+            <li>Levar a vida a sério, mas nunca demasiado a sério.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁRVORE GENEALÓGICA & MAPA -->
+    <section id="mapa">
+      <div class="section-label">Família & lugares</div>
+      <div class="two-col">
+        <div>
+          <h2 class="section-title">Árvore genealógica resumida para curiosos.</h2>
+          <div class="tree">
+            <div class="tree-label">Topo da pirâmide</div>
+            <div class="tree-row">
+              <div class="tree-node">Bisavô — “O Investidor Original”</div>
+              <div class="tree-node">Bisavó — “A Diplomata Social”</div>
+            </div>
+            <div class="tree-label">Segunda geração</div>
+            <div class="tree-row">
+              <div class="tree-node">Avô — Offshores & Golfe</div>
+              <div class="tree-node">Avó — Jantares & Fundraisers</div>
+            </div>
+            <div class="tree-label">Terceira geração</div>
+            <div class="tree-row">
+              <div class="tree-node">Pais — “Work hard, spend harder”</div>
+            </div>
+            <div class="tree-label">Tu</div>
+            <div class="tree-row">
+              <div class="tree-node">Nepo baby — protagonista desta landing page.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="section-title" style="font-size:1.3rem;">Mapa dos lugares importantes.</h3>
+          <p class="section-text">
+            Uma vida dividida entre cidades, resorts e clubes onde toda a gente parece já se conhecer.
+          </p>
+          <div class="map-mock">
+            <div class="map-pin"></div>
+            <div class="map-pin"></div>
+            <div class="map-pin"></div>
+            <div class="map-pin"></div>
+            <div class="map-legend">Clube, mansão, casa de férias & aeroporto favorito.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO / CONVITE -->
+    <section id="contacto">
+      <div class="section-label">Convite</div>
+      <div class="contact-grid">
+        <div>
+          <h2 class="section-title">Pede convite, não desculpa.</h2>
+          <p class="section-text">
+            Se queres colaborar, expor a tua marca, ou só mandar um rant sobre nepo babies,  
+            deixa aqui a tua mensagem. Responderemos assim que o nosso gestor de fortuna tiver um intervalo.
+          </p>
+          <p class="contact-note">
+            Não prometemos resposta rápida, mas prometemos que vai ser lida com um café caro na mão.
+          </p>
+        </div>
+        <div>
+          <form>
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" placeholder="Primeiro nome é suficiente." />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="Onde o convite deve (ou não) chegar." />
+            </div>
+            <div>
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" placeholder="Conta‑nos o teu drama, a tua ideia ou a tua herança imaginária."></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Pedir convite</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-line">
+        © Old Money Nepo Club — “I was born ready” energy desde o dia 1.
+      </div>
+      <div class="footer-404">
+        Nem todo o dinheiro encontra o caminho. Se deres erro 404, finge que foi de propósito.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const track = document.getElementById("carousel-track");
+      const dots = Array.from(document.querySelectorAll(".dot"));
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      const total = dots.length;
+      let index = 0;
+
+      function goToSlide(i) {
+        index = (i + total) % total;
+        track.style.transform = "translateX(" + -index * 100 + "%)";
+        dots.forEach((d, idx) => d.classList.toggle("active", idx === index));
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const i = Number(dot.dataset.slide);
+          goToSlide(i);
+        });
+      });
+
+      prev.addEventListener("click", () => goToSlide(index - 1));
+      next.addEventListener("click", () => goToSlide(index + 1));
+
+      setInterval(() => {
+        goToSlide(index + 1);
+      }, 7000);
+    })();
+  </script>
+</body>
+</html>
